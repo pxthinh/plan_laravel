@@ -7,6 +7,7 @@ use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\MultiLanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,6 @@ Route::get('/comment-post', [CommentController::class, 'getPost'])->name('commen
 Route::resource('posts', PostController::class);
 
 Route::get('test-email', [JobController::class, 'processQueue']);
+
+Route::get('/multi-language', [MultiLanguageController::class, 'index'])
+      ->middleware('language');
